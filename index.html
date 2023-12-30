@@ -13,25 +13,24 @@
     document.title = "Learning.com"
   </script>
   <style>
-    html, body {
-      height: 100%;
-    }
-
-    html {
-      display: table;
-      margin: auto;
-    }
-
-    body {
-      display: table-cell;
-      vertical-align: middle;
-    }
 
   </style>
-  <center style="font-size: 30px;">
-    Drag this to your bookmarks bar!!
-    <br>
-  <a href="javascript:void%20function(){function%20a(a){var%20b=new%20KeyboardEvent(%22keydown%22,{key:a});window.dispatchEvent(b)}function%20b(){g%3Cf.length%26%26(a(f[g]),g++,setTimeout(b,time))}time=prompt(%22Delay%20between%20key%20presses%20(milliseconds):%22);var%20c=Array.from(window.document.querySelectorAll(%22.prompt-letter%22)),d=c.map(function(a){return%20a.textContent}),e=d.map(function(a){return%20a.slice(1,-1)}),f=e.join(%22%22),g=0;b()}();">Learning.com HAX</a>
+    Drag the link to your bookmarks. 
+  <br>
+  <br>
+    <table border = '1' cellpadding = '5'>
+      <tr>
+        <td>Type (single)</td>
+        <td> <a href="javascript:void%20function(){function%20a(a){var%20b=new%20KeyboardEvent(%22keydown%22,{key:a});window.dispatchEvent(b)}function%20b(){g%3Cf.length%26%26(a(f[g]),g++,setTimeout(b,time))}time=prompt(%22Delay%20between%20key%20presses%20(milliseconds):%22);var%20c=Array.from(window.document.querySelectorAll(%22.prompt-letter%22)),d=c.map(function(a){return%20a.textContent}),e=d.map(function(a){return%20a.slice(1,-1)}),f=e.join(%22%22),g=0;b()}();">Auto Type</a></td>
+      </tr>
+      <tr>
+        <td>4EVER Type (Autonomous, infinite)</td>
+        <td> <a href="javascript:void%20function(){function%20sendKey(i){var%20keyboardEvent=new%20KeyboardEvent(%22keydown%22,{key:i});window.dispatchEvent(keyboardEvent)}function%20waitForElm(selector){return%20new%20Promise(resolve=%3E{if(document.querySelector(selector))return%20resolve(document.querySelector(selector));const%20observer=new%20MutationObserver(mutations=%3E{document.querySelector(selector)%26%26(observer.disconnect(),resolve(document.querySelector(selector)))});observer.observe(document.body,{childList:!0,subtree:!0})})}function%20main(){document.getElementsByClassName(%22continue-button%22)[0].click(),setInterval(function(){document.getElementsByClassName(%22posture-image%22)[0]%26%26sendKey(%22%20%22)},1e3),waitForElm(%22.prompt-letter%22).then(let=%3E{function%20typeText(){document.getElementsByClassName(%22continue-button%22)[0].click(),i%3Ctext.length%3F(sendKey(text[i]),i++,setTimeout(typeText,time)):waitForElm(%22.continue-button%22).then(elm=%3E{elm.click(),document.getElementsByClassName(%22continue-button%22)[0].click(),waitForElm(%22.selection-container%22).then(fade=%3E{document.getElementsByClassName(%22fade-up%22)[1].click(),setTimeout(function(){document.getElementsByClassName(%22continue-button%22)[0].click(),main()},2e3)})})}document.getElementsByClassName(%22continue-button%22)[0].click();var%20promptLetters=Array.from(window.document.querySelectorAll(%22.prompt-letter%22)),textContentList=promptLetters.map(function(element){return%20element.textContent});document.getElementsByClassName(%22continue-button%22)[0].click();var%20modifiedList=textContentList.map(function(item){return%20item.slice(1,-1)}),text=modifiedList.join(%22%22);document.getElementsByClassName(%22continue-button%22)[0].click();var%20i=0;typeText()})}time=prompt(%22Delay%20between%20key%20presses%20(milliseconds):%22),document.getElementsByClassName(%22fade-up%22)[Math.floor(2*Math.random())].click(),document.getElementsByClassName(%22continue-button%22)[0].click(),main()}();">INFINITE+ TYPE</a></td>
+      </tr>
+    </table>
+ 
+
+  
     <br>
     <br>
     Click on it when you are on the typing screen. (make sure to press spacebar)
@@ -39,7 +38,6 @@
     <br>
     <img src="here.jpg" alt="" width="400">
 
-    </center>
 
   
 </body>
