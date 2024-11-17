@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>replit</title>
+  <link href="style.css" rel="stylesheet" type="text/css" />
+  <link rel="shortcut icon" href="https://student.learning.com/favicon.ico" image/x-icon">
+</head>
+<body>
+  <script>
+    document.title = "Learning.com"
+  </script>
+  <style>
+html {
+  height: 100%;
+  width: 100%;
+}
+
+  </style>
+    Drag the link to your bookmarks. 
+  <br>
+  <br>
+    <table border = '1' cellpadding = '5'>
+      <tr>
+        <td>Type (single)</td>
+        <td> <a href="javascript:void%20function(){function%20a(a){var%20b=new%20KeyboardEvent(%22keydown%22,{key:a});window.dispatchEvent(b)}function%20b(){g%3Cf.length%26%26(a(f[g]),g++,setTimeout(b,time))}time=prompt(%22Delay%20between%20key%20presses%20(milliseconds):%22);var%20c=Array.from(window.document.querySelectorAll(%22.prompt-letter%22)),d=c.map(function(a){return%20a.textContent}),e=d.map(function(a){return%20a.slice(1,-1)}),f=e.join(%22%22),g=0;b()}();">Auto Type</a></td>
+      </tr>
+      <tr>
+        <td>4EVER Type (Autonomous, infinite)</td>
+        <td> <a href="javascript:void%20function(){function%20sendKey(i){var%20keyboardEvent=new%20KeyboardEvent(%22keydown%22,{key:i});window.dispatchEvent(keyboardEvent)}function%20waitForElm(selector){return%20new%20Promise(resolve=%3E{if(document.querySelector(selector))return%20resolve(document.querySelector(selector));const%20observer=new%20MutationObserver(mutations=%3E{document.querySelector(selector)%26%26(observer.disconnect(),resolve(document.querySelector(selector)))});observer.observe(document.body,{childList:!0,subtree:!0})})}function%20main(){document.getElementsByClassName(%22continue-button%22)[0].click(),setInterval(function(){document.getElementsByClassName(%22posture-image%22)[0]%26%26sendKey(%22%20%22)},1e3),waitForElm(%22.prompt-letter%22).then(let=%3E{function%20typeText(){document.getElementsByClassName(%22continue-button%22)[0].click(),i%3Ctext.length%3F(sendKey(text[i]),i++,setTimeout(typeText,time)):waitForElm(%22.continue-button%22).then(elm=%3E{elm.click(),document.getElementsByClassName(%22continue-button%22)[0].click(),waitForElm(%22.selection-container%22).then(fade=%3E{document.getElementsByClassName(%22fade-up%22)[1].click(),setTimeout(function(){document.getElementsByClassName(%22continue-button%22)[0].click(),main()},2e3)})})}document.getElementsByClassName(%22continue-button%22)[0].click();var%20promptLetters=Array.from(window.document.querySelectorAll(%22.prompt-letter%22)),textContentList=promptLetters.map(function(element){return%20element.textContent});document.getElementsByClassName(%22continue-button%22)[0].click();var%20modifiedList=textContentList.map(function(item){return%20item.slice(1,-1)}),text=modifiedList.join(%22%22);document.getElementsByClassName(%22continue-button%22)[0].click();var%20i=0;typeText()})}time=prompt(%22Delay%20between%20key%20presses%20(milliseconds):%22),document.getElementsByClassName(%22fade-up%22)[Math.floor(2*Math.random())].click(),document.getElementsByClassName(%22continue-button%22)[0].click(),main()}();">INFINITE+ TYPE</a></td>
+      </tr>
+      <tr>
+        <td>XP (and time) Glitch (only works on main page)</td>
+        <td><a href="javascript:void%20function(){(function(a){var%20b=XMLHttpRequest.prototype.open,c=XMLHttpRequest.prototype.setRequestHeader;XMLHttpRequest.prototype.open=function(b){this.method=b,%22post%22===b.toLowerCase()%26%26console.log(%22intercepted%22),a.apply(this,arguments)},XMLHttpRequest.prototype.setRequestHeader=function(a,b){%22authorization%22===a.toLowerCase()%26%26(console.log(a+%22:%20%22+b),history.back(),window.token=b,window.stopInterception()),setRequestHeader.apply(this,arguments)},window.stopInterception=function(){XMLHttpRequest.prototype.open=b,XMLHttpRequest.prototype.setRequestHeader=c}})(XMLHttpRequest.prototype.open,XMLHttpRequest.prototype.setRequestHeader),document.getElementsByClassName(%22fade-up%22)[0].click();var%20a=new%20Date().getTime(),b=prompt(%22Number%20of%20sec/xp%20to%20add%20(1sec%20=%201xp):%20%22),c=prompt(%22Number%20of%20wpm%20to%20add:%20%22),d={%22Content-Type%22:%22application/json%22,Authorization:window.token},e=new%20XMLHttpRequest;e.open(%22GET%22,%22https://cdskyb.learning.com/api/exercise/create/1%22,!0),e.setRequestHeader(%22Content-Type%22,d[%22Content-Type%22]),e.setRequestHeader(%22Authorization%22,d.Authorization),e.onreadystatechange=function(){if(4==e.readyState%26%26200==e.status){var%20f=JSON.parse(e.responseText),g=f.exerciseAggregateId,h=f.prompt[0],i=new%20XMLHttpRequest;i.open(%22POST%22,%22https://cdskyb.learning.com/api/exercise%22,!0),i.setRequestHeader(%22Content-Type%22,d[%22Content-Type%22]),i.setRequestHeader(%22Authorization%22,d.Authorization),i.send(JSON.stringify({accuracy:1,wpm:c,keystrokeData:[{correctKey:h,actualKey:h,correct:!0,timestamp:a,deltaTime:0}],exerciseAggregateId:g,exerciseTypeId:1,completionTimeSeconds:b,bestStreak:1,numCorrect:1,numIncorrect:0,timeZoneOffset:-6})),i.onreadystatechange=function(){4==i.readyState%26%26200==i.status%26%26location.reload()}}},e.send()}();">XP Glitch</a></td>
+      </tr>
+      <tr>
+        <td>LESSON COMPLETER (NEW)</td>
+        <td><a href="javascript:void%20function(){let%20a={%22Content-Type%22:%22application/json%22,Authorization:%22Bearer%20%22+sessionStorage.accessToken},b=document.querySelector(%22%23content-frame%22).contentWindow.document.querySelector(%22.title%22).innerHTML.split(%22/%22).slice(-1)[0],c=prompt(%22How%20many%20seconds%20to%20complete%20in:%20%22),d=prompt(%22How%20many%20slides%20to%20complete:%20%22)-1;d%3Eb%26%26(d=b);let%20e={InteractiveTimeSeconds:c,Scenes:[]};for(let%20a=1;a%3C=d;a++)e.Scenes.push({Name:a,Score:1});console.log(e),fetch(%22https://cdshtm.learning.com/api/bookmark%22,{method:%22POST%22,headers:a,body:JSON.stringify(e)}),setTimeout(function(){location.reload()},1e3)}();">Lesson Completer</a></td>
+      </tr>
+    </table>
+     If you choose a number higher than the number of slides, learning.com will crash and you WILL have to start over. make sure you dont do that. 
+
+  
+    <br>
+    <br>
+    Click on it when you are on the typing screen. (make sure to press spacebar)
+    <br>
+    <br>
+    <img src="./here.jpg" alt="" width="400">
+
+
+  
+</body>
+
+</html>
