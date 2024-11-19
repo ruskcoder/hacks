@@ -157,6 +157,7 @@ document.body.prepend(iframe);
 iframe.onload = async function () {
     await new Promise(resolve => setTimeout(resolve, 1000));
     for (let i = 0; i < 3; i++) {
+        await new Promise(resolve => setTimeout(resolve, 200));
         if (iframe.contentWindow.document.querySelector('.quill-button-archived')) {
             iframe.contentWindow.document.querySelector('.quill-button-archived').click();
         }
