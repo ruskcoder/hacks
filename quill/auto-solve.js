@@ -44,7 +44,7 @@ async function hack(obj, top) {
             }
 
             // Create and display overlay
-            if (!top.document.querySelector('.overlay')) { 
+            if (!top.document.querySelector('.overlay')) {
                 const overlayDiv = top.document.createElement('div');
                 overlayDiv.id = 'overlay';
                 overlayDiv.innerHTML = `
@@ -76,7 +76,6 @@ async function hack(obj, top) {
                     </style>
                     <p style="font-size: 40px; padding: none; margin: 0px !important;">Solving Quill...</p>
                     <div class="multi-ripple"><div></div><div></div></div>
-                    Made by @*********
                 </div>`;
                 top.document.body.prepend(overlayDiv);
             }
@@ -158,11 +157,11 @@ document.body.prepend(iframe);
 iframe.onload = async function () {
     await new Promise(resolve => setTimeout(resolve, 1000));
     for (let i = 0; i < 3; i++) {
-        try {
+        if (iframe.contentWindow.document.querySelector('.quill-button-archived')) {
             iframe.contentWindow.document.querySelector('.quill-button-archived').click();
-        } catch (e) { }
+        }
         await new Promise(resolve => setTimeout(resolve, 100));
-        if (iframe.contentWindow.document.body.innerHTML.includes('completed')) { 
+        if (iframe.contentWindow.document.body.innerHTML.includes('completed')) {
             iframe.onload = null;
             const overlay = top.document.getElementById('overlay');
             if (overlay) {

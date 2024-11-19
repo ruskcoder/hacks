@@ -76,7 +76,6 @@ async function hack(obj, top) {
                     </style>
                     <p style="font-size: 40px; padding: none; margin: 0px !important;">Solving Quill...</p>
                     <div class="multi-ripple"><div></div><div></div></div>
-                    Made by @*********
                 </div>`;
                 top.document.body.prepend(overlayDiv);
             }
