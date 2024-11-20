@@ -82,9 +82,9 @@ async function hack(obj, top) {
 
             // Fetch correct response
             const response = await (await originalFetch(`https://cms.quill.org/questions/${qid}/responses`)).json();
+            // const response = await (await originalFetch(`https://cms.quill.org/questions/${qid}/multiple_choice_options`)).json();
             let correct = response.find(option => option.optimal == true);
             let correctAns = { ...correct, is_first_attempt: true, key: correct.id.toString(), created_at: `${new Date(correct.created_at).getTime()}` };
-
             // Process concept results
             let conceptIds = Object.keys(correct.concept_results);
             correct.concept_results = conceptIds.map(cid => ({ "conceptUID": cid, "correct": false }));
@@ -117,6 +117,7 @@ async function hack(obj, top) {
             }
 
             // Update session time tracking
+            session.timeTracking[`prompt_${session.answeredQuestions.length + 1}`] = Math.floor(Math.random() * 20000) + 10000;
             session.timeTracking[`prompt_${session.answeredQuestions.length + 1}`] = Math.floor(Math.random() * 20000) + 10000;
             session = { "active_activity_session": session };
 
