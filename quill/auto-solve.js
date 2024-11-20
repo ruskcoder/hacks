@@ -82,9 +82,9 @@ async function hack(obj, top) {
 
             // Fetch correct response
             const response = await (await originalFetch(`https://cms.quill.org/questions/${qid}/responses`)).json();
+            // const response = await (await originalFetch(`https://cms.quill.org/questions/${qid}/multiple_choice_options`)).json();
             let correct = response.find(option => option.optimal == true);
             let correctAns = { ...correct, is_first_attempt: true, key: correct.id.toString(), created_at: `${new Date(correct.created_at).getTime()}` };
-
             // Process concept results
             let conceptIds = Object.keys(correct.concept_results);
             correct.concept_results = conceptIds.map(cid => ({ "conceptUID": cid, "correct": false }));
@@ -117,7 +117,7 @@ async function hack(obj, top) {
             }
 
             // Update session time tracking
-            session.timeTracking[`prompt_${session.answeredQuestions.length + 1}`] = Math.floor(Math.random() * (40000 - 10000 + 1)) + 10000;
+            session.timeTracking[`prompt_${session.answeredQuestions.length + 1}`] = Math.floor(Math.random() * 20000) + 10000;
             session = { "active_activity_session": session };
 
             // Send correct answer and update session
@@ -157,20 +157,20 @@ document.body.prepend(iframe);
 iframe.onload = async function () {
     await new Promise(resolve => setTimeout(resolve, 1000));
     for (let i = 0; i < 3; i++) {
-        await new Promise(resolve => setTimeout(resolve, 200));
-        if (iframe.contentWindow.document.querySelector('.quill-button-archived')) {
-            iframe.contentWindow.document.querySelector('.quill-button-archived').click();
-        }
-        await new Promise(resolve => setTimeout(resolve, 100));
         if (iframe.contentWindow.document.body.innerHTML.includes('completed')) {
             iframe.onload = null;
             const overlay = top.document.getElementById('overlay');
             if (overlay) {
                 overlay.remove();
             }
+            window.location.reload();
             await new Promise(resolve => setTimeout(resolve, 2000));
             window.location.href = iframe.contentWindow.location.href;
             break;
+        }
+        await new Promise(resolve => setTimeout(resolve, 200));
+        if (iframe.contentWindow.document.querySelector('.quill-button-archived')) {
+            iframe.contentWindow.document.querySelector('.quill-button-archived').click();
         }
     }
     hack(iframe.contentWindow, window);
