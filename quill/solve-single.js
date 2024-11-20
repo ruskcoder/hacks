@@ -117,7 +117,7 @@ async function hack(obj, top) {
             }
 
             // Update session time tracking
-            session.timeTracking[`prompt_${session.answeredQuestions.length + 1}`] = Math.floor(Math.random() * (40000 - 10000 + 1)) + 10000;
+            session.timeTracking[`prompt_${session.answeredQuestions.length + 1}`] = Math.floor(Math.random() * 20000) + 10000;
             session = { "active_activity_session": session };
 
             // Send correct answer and update session

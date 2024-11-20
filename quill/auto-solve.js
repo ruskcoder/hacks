@@ -117,7 +117,7 @@ async function hack(obj, top) {
             }
 
             // Update session time tracking
-            session.timeTracking[`prompt_${session.answeredQuestions.length + 1}`] = Math.floor(Math.random() * (40000 - 10000 + 1)) + 10000;
+            session.timeTracking[`prompt_${session.answeredQuestions.length + 1}`] = Math.floor(Math.random() * 20000) + 10000;
             session = { "active_activity_session": session };
 
             // Send correct answer and update session
@@ -151,27 +151,52 @@ iframe.style.height = "100vh";
 iframe.style.zIndex = "999";
 iframe.style.border = "none";
 iframe.id = "quill-iframe";
-
+window.oldLocation = window.location.href;
 document.body.prepend(iframe);
-
+window.end = false;
 iframe.onload = async function () {
+    iframe.contentWindow.document.querySelectorAll('a').forEach(link => {
+        link.target = '_parent';
+    });
     await new Promise(resolve => setTimeout(resolve, 1000));
+    iframe.contentWindow.document.querySelectorAll('a').forEach(link => {
+        link.target = '_parent';
+    });
     for (let i = 0; i < 3; i++) {
         await new Promise(resolve => setTimeout(resolve, 200));
-        if (iframe.contentWindow.document.querySelector('.quill-button-archived')) {
-            iframe.contentWindow.document.querySelector('.quill-button-archived').click();
+        if (iframe.contentWindow.document.querySelector('.quill-button-archived.focus-on-light.large.primary.contained')) {
+            iframe.contentWindow.document.querySelector('.quill-button-archived.focus-on-light.large.primary.contained').click();
         }
+
         await new Promise(resolve => setTimeout(resolve, 100));
+        if (iframe.contentWindow.document.querySelector('.spinner')) {
+            const overlay = top.document.getElementById('overlay');
+            if (overlay) {
+                overlay.remove();
+            }
+            while (iframe.contentWindow.document.querySelector('.spinner')) {
+                await new Promise(resolve => setTimeout(resolve, 100));
+            }
+        }
+            }
+    if (!window.end) {
+        await hack(iframe.contentWindow, window);
+    }
+};
+function runForever() {
+    setInterval(() => {
         if (iframe.contentWindow.document.body.innerHTML.includes('completed')) {
             iframe.onload = null;
             const overlay = top.document.getElementById('overlay');
             if (overlay) {
                 overlay.remove();
             }
-            await new Promise(resolve => setTimeout(resolve, 2000));
-            window.location.href = iframe.contentWindow.location.href;
-            break;
+            window.end = true;
         }
-    }
-    hack(iframe.contentWindow, window);
-};
+        if (iframe.contentWindow.location.href != window.oldLocation && !iframe.contentWindow.location.href.includes("about:blank")) {
+            window.location.href = iframe.contentWindow.location.href;
+        }
+    }, 100);
+}
+
+runForever();
